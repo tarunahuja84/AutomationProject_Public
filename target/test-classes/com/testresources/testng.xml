@@ -7,7 +7,7 @@
 	<parameter name="baseurl" value="http://google.com" />
 
 		<classes>
-			<class name="com.test.java.GoogleSearchTest" />
+			<class name="com.tests.GoogleSearchTest" />
 		</classes>
 	</test>
 
@@ -16,7 +16,7 @@
 	<parameter name="baseurl" value="https://www.amazon.com/" />
 
 		<classes>
-			<class name="com.test.AmazonSearchTest" />
+			<class name="com.tests.AmazonSearchTest" />
 		</classes>
 	</test>
 

@@ -23,6 +23,9 @@ public class BrowserDriver extends Base{
 		try {
 			if(browserName.equalsIgnoreCase("firefox"))
 			{
+				System.setProperty("webdriver.chrome.driver",
+						System.getProperty("user.dir")
+								+ "\\BrowserDriver\\geckodriver.exe");
 				DesiredCapabilities cap = new DesiredCapabilities();
 				cap.setCapability("hostIP",hubIP);
 				cap.setCapability("Port","4444");
@@ -36,6 +39,9 @@ public class BrowserDriver extends Base{
 			}
 			else if(browserName.equalsIgnoreCase("chrome"))
 			{
+				System.setProperty("webdriver.chrome.driver",
+						System.getProperty("user.dir")
+								+ "\\BrowserDriver\\chromedriver.exe");
 				DesiredCapabilities cap = new DesiredCapabilities();
 				cap.setCapability("hostIP",hubIP);
 				cap.setCapability("Port","4444");
