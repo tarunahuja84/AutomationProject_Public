@@ -26,31 +26,32 @@ public class BrowserDriver extends Base{
 				System.setProperty("webdriver.chrome.driver",
 						System.getProperty("user.dir")
 								+ "\\BrowserDriver\\geckodriver.exe");
-				DesiredCapabilities cap = new DesiredCapabilities();
-				cap.setCapability("hostIP",hubIP);
-				cap.setCapability("Port","4444");
-				cap.setCapability(CapabilityType.BROWSER_NAME, "firefox");
-				cap.setCapability("OS NAMe", Platform.WINDOWS);
-				FirefoxOptions fOpt = new FirefoxOptions();
-				fOpt.merge(cap);
+				/*
+				 * DesiredCapabilities cap = new DesiredCapabilities();
+				 * cap.setCapability("hostIP",hubIP); cap.setCapability("Port","4444");
+				 * cap.setCapability(CapabilityType.BROWSER_NAME, "firefox");
+				 * cap.setCapability("OS NAMe", Platform.WINDOWS); FirefoxOptions fOpt = new
+				 * FirefoxOptions(); fOpt.merge(cap);
 				
-				driver = new FirefoxDriver(fOpt);
+				
+				driver = new FirefoxDriver(fOpt); */
 
+				driver = new FirefoxDriver();
 			}
 			else if(browserName.equalsIgnoreCase("chrome"))
 			{
 				System.setProperty("webdriver.chrome.driver",
 						System.getProperty("user.dir")
 								+ "\\BrowserDriver\\chromedriver.exe");
-				DesiredCapabilities cap = new DesiredCapabilities();
-				cap.setCapability("hostIP",hubIP);
-				cap.setCapability("Port","4444");
-				cap.setCapability(CapabilityType.BROWSER_NAME, "firefox");
-				cap.setCapability("OS NAMe", Platform.WINDOWS);
-				ChromeOptions options = new ChromeOptions();
-				options.merge(cap);
-				
-				driver = new ChromeDriver(options);		
+				/*
+				 * DesiredCapabilities cap = new DesiredCapabilities();
+				 * cap.setCapability("hostIP",hubIP); cap.setCapability("Port","4444");
+				 * cap.setCapability(CapabilityType.BROWSER_NAME, "firefox");
+				 * cap.setCapability("OS NAMe", Platform.WINDOWS); ChromeOptions options = new
+				 * ChromeOptions(); options.merge(cap);
+				 * 
+				 * driver = new ChromeDriver(options);*/
+				driver = new ChromeDriver();
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

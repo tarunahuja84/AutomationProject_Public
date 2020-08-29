@@ -18,9 +18,10 @@ public class GoogleSearchTest extends Base {
 	@Tag(name = "Regression")
 	public void performGoogleSearch() {
 		test = extent.startTest("Verify that user is able to Search Kitchen Set on Google sucessfully").assignCategory("Google Advance Search");
+		baseobj.holdon(9);
 		GS.searchKeyword("playing kitchen set");
 		baseobj.holdon(5);
-		Assert.assertTrue(baseobj.currentPageURL().contains("/advancedsearch"));
+		Assert.assertTrue(baseobj.currentPageURL().contains("kitchen set"));
 	}
 	
 	
