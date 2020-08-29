@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" name="BlogSuite" parallel="true">
+
+<test name="ChromeBrowserAutomationTests">
+	<parameter name="browserName" value="chrome" />
+	<parameter name="baseurl" value="http://google.com" />
+
+		<classes>
+			<class name="com.test.java.GoogleSearchTest" />
+		</classes>
+	</test>
+
+<test name="FirefoxBrowserAutomationTests">
+	<parameter name="browserName" value="firefox" />
+	<parameter name="baseurl" value="https://www.amazon.com/" />
+
+		<classes>
+			<class name="com.test.AmazonSearchTest" />
+		</classes>
+	</test>
+
+
+</suite>
