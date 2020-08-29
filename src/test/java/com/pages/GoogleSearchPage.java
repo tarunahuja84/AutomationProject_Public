@@ -24,7 +24,7 @@ public class GoogleSearchPage {
 	public void searchKeyword(String keyword){
 		
 		WA.setTextBoxValue(searchMenu, keyword);
-		WA.click(search_button);
+		WA.sendkeys(searchMenu);
 		WA.waitForBrowserToLoadCompletely();
 	}
 }

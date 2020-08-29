@@ -23,7 +23,7 @@ public class BrowserDriver extends Base{
 		try {
 			if(browserName.equalsIgnoreCase("firefox"))
 			{
-				System.setProperty("webdriver.chrome.driver",
+				System.setProperty("webdriver.gecko.driver",
 						System.getProperty("user.dir")
 								+ "\\BrowserDriver\\geckodriver.exe");
 				/*

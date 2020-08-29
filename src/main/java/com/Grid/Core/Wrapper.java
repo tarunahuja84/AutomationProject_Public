@@ -101,6 +101,14 @@ public class Wrapper {
 		element.sendKeys(text);
 	}
 	
+	
+	public void sendkeys(By locator)
+	{
+		this.element = getElement(locator);
+		element.sendKeys(Keys.ENTER);
+	}
+	
+	
 //	public static String xmlReader(String NodeName, String PropertyValue) {
 //        Element element = null;
 //        String Value = null;
