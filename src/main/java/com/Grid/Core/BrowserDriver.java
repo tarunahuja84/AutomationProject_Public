@@ -1,13 +1,19 @@
 package com.Grid.Core;
 
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.FluentWait;
 
 
 public class BrowserDriver extends Base{
@@ -22,17 +28,11 @@ public class BrowserDriver extends Base{
 		try {
 			if(browserName.equalsIgnoreCase("firefox"))
 			{
-				System.setProperty("webdriver.gecko.driver",
-						System.getProperty("user.dir")
-								+ "\\BrowserDriver\\geckodriver.exe");
-		
-				
 				/*
-				 * ChromeOptions options = new ChromeOptions(); URL uri = new
-				 * URL("192.168.0.24:5666/wd/hub"); driver = new FirefoxDriver();
+				 * System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") +
+				 * "\\BrowserDriver\\geckodriver.exe");
+				 * 
 				 */
-
-//				driver = new FirefoxDriver();
 			}
 			else if(browserName.equalsIgnoreCase("chrome"))
 			{
@@ -40,12 +40,10 @@ public class BrowserDriver extends Base{
 						System.getProperty("user.dir")
 								+ "\\BrowserDriver\\chromedriver.exe");
 				
-				DesiredCapabilities cap = DesiredCapabilities.chrome();
-				ChromeOptions options = new ChromeOptions();
-				options.merge(cap);
-				URL uri = new URL("192.168.0.24:5666/wd/hub");
-				  				  
-				 driver = new RemoteWebDriver(uri, options);
+				DesiredCapabilities cap = new DesiredCapabilities();
+				cap.setPlatform(Platform.WINDOWS);
+				 driver = new RemoteWebDriver(new URL("http://192.168.0.24:4444/wd/hub"), cap);
+	
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
