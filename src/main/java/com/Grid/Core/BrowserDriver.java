@@ -40,9 +40,16 @@ public class BrowserDriver extends Base{
 						System.getProperty("user.dir")
 								+ "\\BrowserDriver\\chromedriver.exe");
 				
-				DesiredCapabilities cap = new DesiredCapabilities();
-				cap.setPlatform(Platform.WINDOWS);
-				 driver = new RemoteWebDriver(new URL("http://192.168.0.24:4444/wd/hub"), cap);
+				DesiredCapabilities caps = new DesiredCapabilities();
+				caps.setCapability("os", "Windows");
+				caps.setCapability("os_version", "10");
+				caps.setCapability("browser", "Chrome");
+				caps.setCapability("browser_version", "latest");
+				caps.setCapability("resolution", "1600x1200");
+				caps.setCapability("browserstack.local", "false");
+				caps.setCapability("browserstack.selenium_version", "3.14.0");
+				
+				 driver = new RemoteWebDriver(new URL("http:/localhost:4444/wd/hub"), caps);
 	
 			}
 		} catch (Exception e) {
