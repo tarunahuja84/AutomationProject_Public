@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -29,18 +30,19 @@ public class BrowserDriver extends Base{
 			
 			  if(browserName.equalsIgnoreCase("firefox") && portnumber==4547){ 
 			  
-				  String nodeURL ="http://172.29.69.173:4547"; 
+		      String nodeURL ="http://172.29.69.173:4547/wd/hub"; 
 			  System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir") + "\\BrowserDriver\\geckodriver.exe");
-			  DesiredCapabilities caps = new DesiredCapabilities().firefox();
-			  caps.setBrowserName("firefox"); 
-			  caps.setPlatform(Platform.WINDOWS); 
-			  driver =new RemoteWebDriver(new URL(nodeURL),caps); 
+				DesiredCapabilities caps = new DesiredCapabilities();
+				caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
+				caps.setCapability("browser", "firefox");
+				FirefoxOptions options = new FirefoxOptions();
+				options.merge(caps);			  
+			  driver =new RemoteWebDriver(new URL(nodeURL),options); 
 			  } 
 			  else if(browserName.equalsIgnoreCase("chrome") && portnumber==5056)
 			{
 				System.out.println("Before NODE URL IS MADE");
 				 String nodeURL = "http://172.29.69.173:5056/wd/hub";
-//				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+ "\\BrowserDriver\\chromedriver.exe");
 				System.out.println("SETTING UP THE DESIRED CAPABILITIES");
 				DesiredCapabilities caps = new DesiredCapabilities();
 				caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
