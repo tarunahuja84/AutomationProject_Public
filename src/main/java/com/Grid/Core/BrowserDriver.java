@@ -8,12 +8,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 
 public class BrowserDriver extends Base{
 
 	static WebDriver driver;
-	static String hubIP="http://192.168.1.0";
+	static String hubIP="http://192.168.0.24";
 	
 	public static void getDriver(String browserName,String baseurl)
 	{
@@ -43,15 +44,16 @@ public class BrowserDriver extends Base{
 				System.setProperty("webdriver.chrome.driver",
 						System.getProperty("user.dir")
 								+ "\\BrowserDriver\\chromedriver.exe");
-				/*
-				 * DesiredCapabilities cap = new DesiredCapabilities();
-				 * cap.setCapability("hostIP",hubIP); cap.setCapability("Port","4444");
-				 * cap.setCapability(CapabilityType.BROWSER_NAME, "firefox");
-				 * cap.setCapability("OS NAMe", Platform.WINDOWS); ChromeOptions options = new
-				 * ChromeOptions(); options.merge(cap);
-				 * 
-				 * driver = new ChromeDriver(options);*/
-				driver = new ChromeDriver();
+				
+				  DesiredCapabilities cap = new DesiredCapabilities();
+				  cap.setCapability("hostIP",hubIP); cap.setCapability("Port","4444");
+				  cap.setCapability(CapabilityType.BROWSER_NAME, "firefox");
+				  cap.setCapability("OS NAMe", Platform.WINDOWS); 
+				  /*ChromeOptions options = new ChromeOptions(); 
+				  options.merge(cap);*/
+				  
+//				 driver = new ChromeDriver(options);
+				driver = new RemoteWebDriver(cap);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
