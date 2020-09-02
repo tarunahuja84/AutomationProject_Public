@@ -18,7 +18,7 @@ public class BrowserDriver extends Base{
 	public static void getDriver(String browserName,String baseurl)
 	{
 		Wrapper wa = Wrapper.getInstance();
-		CustomLogger.start("browser");
+		CustomLogger.start("browser ::-->>");
 
 		try {
 			if(browserName.equalsIgnoreCase("firefox"))

@@ -1,5 +1,7 @@
 package com.Grid.Core;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,6 +31,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -85,7 +88,11 @@ public class Wrapper {
 	public String getAttribute_ButtonName(By locator, String attribute) {
 		element=getElement(locator);
 		System.out.println("Value of attribute" +  attribute + " is: "+element.getAttribute(attribute));
+		
+		driver.findElement(locator).sendKeys(Keys.SHIFT.chord("this is the test statement"));
 		return element.getAttribute(attribute);
+		
+		
 	}
 	
 	
