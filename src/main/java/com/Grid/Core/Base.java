@@ -36,11 +36,11 @@ public class Base {
 		extent.addSystemInfo(sysInfo);
 	}
 	
-	@Parameters({"browserName","baseurl"})
+	@Parameters({"portnumber","browserName","baseurl"})
 	@BeforeMethod
-	public void initiateDriver(String browserName, String baseurl)
+	public void initiateDriver(String portnumber, String browserName, String baseurl)
 	{
-		BrowserDriver.getDriver(browserName, baseurl);
+		BrowserDriver.getDriver(portnumber,browserName, baseurl);
 	}
 	
 	@AfterMethod

@@ -20,7 +20,7 @@ public class BrowserDriver extends Base{
 
 	static WebDriver driver;
 	
-	public static void getDriver(String browserName,String baseurl)
+	public static void getDriver(String portnumber, String browserName,String baseurl)
 	{
 		Wrapper wa = Wrapper.getInstance();
 		CustomLogger.start("browser ::-->>");
@@ -28,28 +28,30 @@ public class BrowserDriver extends Base{
 		try {
 			if(browserName.equalsIgnoreCase("firefox"))
 			{
-				/*
-				 * System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") +
-				 * "\\BrowserDriver\\geckodriver.exe");
-				 * 
-				 */
+				String nodeURL = "http://172.29.69.173:4547";
+				System.setProperty("webdriver.gecko.driver",
+						System.getProperty("user.dir")
+								+ "\\BrowserDriver\\geckodriver.exe");
+				DesiredCapabilities caps = new DesiredCapabilities().firefox();
+				caps.setBrowserName("firefox");
+				caps.setPlatform(Platform.WINDOWS);
+				driver = new RemoteWebDriver(new URL(nodeURL),caps);
 			}
-			else if(browserName.equalsIgnoreCase("chrome"))
+			else if(browserName.equalsIgnoreCase("chrome") && portnumber=="4546")
 			{
+				String nodeURL = "http://172.29.69.173:4546";
 				System.setProperty("webdriver.chrome.driver",
 						System.getProperty("user.dir")
 								+ "\\BrowserDriver\\chromedriver.exe");
 				
 				DesiredCapabilities caps = new DesiredCapabilities();
-				caps.setCapability("os", "Windows");
-				caps.setCapability("os_version", "10");
+				caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
 				caps.setCapability("browser", "Chrome");
 				caps.setCapability("browser_version", "latest");
-				caps.setCapability("resolution", "1600x1200");
 				caps.setCapability("browserstack.local", "false");
 				caps.setCapability("browserstack.selenium_version", "3.14.0");
 				
-				 driver = new RemoteWebDriver(new URL("http:/192.168.0.24:4444/wd/hub"), caps);
+				driver = new RemoteWebDriver(new URL(nodeURL),caps);
 	
 			}
 		} catch (Exception e) {
