@@ -3,7 +3,7 @@
 <suite thread-count="3" name="BlogSuite" parallel="true">
 
 <test name="ChromeBrowserAutomationTests">
-	<parameter name="portnumber" value="4546" />
+	<parameter name="portnumber" value="5056" />
 	<parameter name="browserName" value="chrome" />
 	<parameter name="baseurl" value="http://google.com" />
 
@@ -12,7 +12,15 @@
 		</classes>
 	</test>
 
+<test name="ChromeBrowserAutomationTests">
+	<parameter name="portnumber" value="4546" />
+	<parameter name="browserName" value="chrome" />
+	<parameter name="baseurl" value="http://Amazon.com" />
 
+		<classes>
+			<class name="com.tests.GoogleSearchTest" />
+		</classes>
+	</test>
 
 
 </suite>

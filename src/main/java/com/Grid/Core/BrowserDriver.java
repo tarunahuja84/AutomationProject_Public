@@ -26,14 +26,17 @@ public class BrowserDriver extends Base{
 		CustomLogger.start("browser ::-->>");
 
 		try {
-			/*
-			 * if(browserName.equalsIgnoreCase("firefox")) { String nodeURL =
-			 * "http://172.29.69.173:4547"; System.setProperty("webdriver.gecko.driver",
-			 * System.getProperty("user.dir") + "\\BrowserDriver\\geckodriver.exe");
-			 * DesiredCapabilities caps = new DesiredCapabilities().firefox();
-			 * caps.setBrowserName("firefox"); caps.setPlatform(Platform.WINDOWS); driver =
-			 * new RemoteWebDriver(new URL(nodeURL),caps); } else
-			 */ if(browserName.equalsIgnoreCase("chrome") && portnumber==4546)
+			
+			  if(browserName.equalsIgnoreCase("firefox") && portnumber==4547){ 
+			  
+				  String nodeURL ="http://172.29.69.173:4547"; 
+			  System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir") + "\\BrowserDriver\\geckodriver.exe");
+			  DesiredCapabilities caps = new DesiredCapabilities().firefox();
+			  caps.setBrowserName("firefox"); 
+			  caps.setPlatform(Platform.WINDOWS); 
+			  driver =new RemoteWebDriver(new URL(nodeURL),caps); 
+			  } 
+			  else if(browserName.equalsIgnoreCase("chrome") && portnumber==5056)
 			{
 				System.out.println("Before NODE URL IS MADE");
 				 String nodeURL = "http://172.29.69.173:5056/wd/hub";
