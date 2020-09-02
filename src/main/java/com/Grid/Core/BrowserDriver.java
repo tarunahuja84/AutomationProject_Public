@@ -49,7 +49,7 @@ public class BrowserDriver extends Base{
 				caps.setCapability("browserstack.local", "false");
 				caps.setCapability("browserstack.selenium_version", "3.14.0");
 				
-				 driver = new RemoteWebDriver(new URL("http:/localhost:4444/wd/hub"), caps);
+				 driver = new RemoteWebDriver(new URL("http:/192.168.0.24:4444/wd/hub"), caps);
 	
 			}
 		} catch (Exception e) {
