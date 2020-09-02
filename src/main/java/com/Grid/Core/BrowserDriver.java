@@ -31,7 +31,7 @@ public class BrowserDriver extends Base{
 			  if(browserName.equalsIgnoreCase("firefox") && portnumber==4547){ 
 			  
 		      String nodeURL ="http://172.29.69.173:4547/wd/hub"; 
-			  System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir") + "\\BrowserDriver\\geckodriver.exe");
+//			  System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir") + "\\BrowserDriver\\geckodriver.exe");
 				DesiredCapabilities caps = new DesiredCapabilities();
 				caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
 				caps.setCapability("browser", "firefox");
