@@ -35,6 +35,7 @@ public class BrowserDriver extends Base{
 				DesiredCapabilities caps = new DesiredCapabilities();
 				caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
 				caps.setCapability("browser", "firefox");
+				//test
 				FirefoxOptions options = new FirefoxOptions();
 				options.merge(caps);			  
 			  driver =new RemoteWebDriver(new URL(nodeURL),options); 
