@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="3" name="BlogSuite" parallel="true">
 
-<test name="ChromeBrowserAutomationTests">
+<test name="********** CHROME TEST **********">
 	<parameter name="portnumber" value="5056" />
 	<parameter name="browserName" value="chrome" />
 	<parameter name="baseurl" value="http://google.com" />
@@ -12,13 +12,13 @@
 		</classes>
 	</test>
 
-<test name="ChromeBrowserAutomationTests">
+<test name="********** FIREFOX TEST ********** ">
 	<parameter name="portnumber" value="4547" />
 	<parameter name="browserName" value="firefox" />
 	<parameter name="baseurl" value="http://Amazon.com" />
 
 		<classes>
-			<class name="com.tests.GoogleSearchTest" />
+			<class name="com.tests.AmazonSearchTest" />
 		</classes>
 	</test>
 
