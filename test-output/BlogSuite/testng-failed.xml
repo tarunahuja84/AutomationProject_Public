@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" name="Failed suite [BlogSuite]" parallel="true">
+  <parameter name="baseurl" value="http://google.com"/>
+  <parameter name="portnumber" value="4546"/>
+  <parameter name="browserName" value="chrome"/>
+  <test name="ChromeBrowserAutomationTests(failed)" parallel="true">
+    <parameter name="baseurl" value="http://google.com"/>
+    <parameter name="portnumber" value="4546"/>
+    <parameter name="browserName" value="chrome"/>
+    <classes>
+      <class name="com.tests.GoogleSearchTest">
+        <methods>
+          <include name="StopDriver"/>
+          <include name="initiateDriver"/>
+          <include name="setupReport"/>
+          <include name="performGoogleSearch"/>
+        </methods>
+      </class> <!-- com.tests.GoogleSearchTest -->
+    </classes>
+  </test> <!-- ChromeBrowserAutomationTests(failed) -->
+</suite> <!-- Failed suite [BlogSuite] -->

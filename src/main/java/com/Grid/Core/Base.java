@@ -38,7 +38,7 @@ public class Base {
 	
 	@Parameters({"portnumber","browserName","baseurl"})
 	@BeforeMethod
-	public void initiateDriver(String portnumber, String browserName, String baseurl)
+	public void initiateDriver(int portnumber, String browserName, String baseurl)
 	{
 		BrowserDriver.getDriver(portnumber,browserName, baseurl);
 	}

@@ -20,44 +20,40 @@ public class BrowserDriver extends Base{
 
 	static WebDriver driver;
 	
-	public static void getDriver(String portnumber, String browserName,String baseurl)
+	public static void getDriver(int portnumber, String browserName,String baseurl)
 	{
 		Wrapper wa = Wrapper.getInstance();
 		CustomLogger.start("browser ::-->>");
 
 		try {
-			if(browserName.equalsIgnoreCase("firefox"))
+			/*
+			 * if(browserName.equalsIgnoreCase("firefox")) { String nodeURL =
+			 * "http://172.29.69.173:4547"; System.setProperty("webdriver.gecko.driver",
+			 * System.getProperty("user.dir") + "\\BrowserDriver\\geckodriver.exe");
+			 * DesiredCapabilities caps = new DesiredCapabilities().firefox();
+			 * caps.setBrowserName("firefox"); caps.setPlatform(Platform.WINDOWS); driver =
+			 * new RemoteWebDriver(new URL(nodeURL),caps); } else
+			 */ if(browserName.equalsIgnoreCase("chrome") && portnumber==4546)
 			{
-				String nodeURL = "http://172.29.69.173:4547";
-				System.setProperty("webdriver.gecko.driver",
-						System.getProperty("user.dir")
-								+ "\\BrowserDriver\\geckodriver.exe");
-				DesiredCapabilities caps = new DesiredCapabilities().firefox();
-				caps.setBrowserName("firefox");
-				caps.setPlatform(Platform.WINDOWS);
-				driver = new RemoteWebDriver(new URL(nodeURL),caps);
-			}
-			else if(browserName.equalsIgnoreCase("chrome") && portnumber=="4546")
-			{
-				String nodeURL = "http://172.29.69.173:4546";
-				System.setProperty("webdriver.chrome.driver",
-						System.getProperty("user.dir")
-								+ "\\BrowserDriver\\chromedriver.exe");
-				
+				System.out.println("Before NODE URL IS MADE");
+				 String nodeURL = "http://172.29.69.173:5056/wd/hub";
+//				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+ "\\BrowserDriver\\chromedriver.exe");
+				System.out.println("SETTING UP THE DESIRED CAPABILITIES");
 				DesiredCapabilities caps = new DesiredCapabilities();
 				caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
 				caps.setCapability("browser", "Chrome");
-				caps.setCapability("browser_version", "latest");
-				caps.setCapability("browserstack.local", "false");
-				caps.setCapability("browserstack.selenium_version", "3.14.0");
-				
-				driver = new RemoteWebDriver(new URL(nodeURL),caps);
-	
+				ChromeOptions options = new ChromeOptions();
+				options.merge(caps);
+				System.out.println("bEFORE HITTING HUB");
+				driver = new RemoteWebDriver(new URL(nodeURL),options);
+				System.out.println("AFTER HITTING HUB");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			System.out.println("********************************INSIDE CATCH********************************");
 			e.printStackTrace();
 		}
+		System.out.println("GETTING BASE URL ----->>> " + baseurl);
 		driver.get(baseurl);
 		wa.setWebDriver(driver);
 	}
